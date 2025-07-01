@@ -1,0 +1,264 @@
+/* Media Queries */
+
+@media screen and (max-width: 1400px) {
+  #desktop-nav {
+    display: none;
+  }
+  #hamburger-nav {
+    display: flex;
+  }
+  #profile {
+    display: block;
+  }
+  .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+  .about-containers {
+    margin-top: 0;
+  }
+  section {
+    margin: 0 5%;
+  }
+  #contact {
+    height: fit-content;
+  }
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  footer nav {
+    height: fit-content;
+    margin-bottom: 2rem;
+  }
+  .about-containers,
+  .contact-info-upper-container,
+  .btn-container {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  section {
+    margin: 0 5%;
+  }
+  #experience,
+  .experience-details-container {
+    margin-top: 2rem;
+  }
+  .details-container {
+    flex: 1; /* Allow details containers to grow */
+  }
+  .about-containers {
+    flex-direction: column; /* Stack about containers vertically */
+  }
+  #profile {
+    gap: 1rem;
+  }
+  .section__pic-container {
+    margin-bottom: 1rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  #projects {
+    flex-direction: column;
+  }
+  .subdetail_container {
+    max-width: none; /* Remove max-width on smaller screens */
+    width: 100%; /* Take full width */
+  }
+  #dashboards .dashboard-item {
+    max-width: none;
+    width: 100%;
+  }
+  #certifications .certification-card {
+    max-width: none;
+    width: 100%;
+  }
+  .courses_container .skill-track {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #profile {
+    flex-direction: column;
+    padding-top: 2rem;
+    min-height: unset;
+  }
+  .section__pic-container {
+    width: 250px;
+    height: 250px;
+  }
+  .section__text .title {
+    font-size: 2rem;
+  }
+  .section__text__p2 {
+    font-size: 1.2rem;
+  }
+  .about-containers {
+    flex-direction: column;
+  }
+  .experience-sub-title {
+    font-size: 1.5rem;
+  }
+  .article-container {
+    gap: 1rem;
+    justify-content: center;
+  }
+  article {
+    width: unset; /* Allow article width to adjust */
+  }
+  .details-container {
+    padding: 1rem;
+  }
+  .project-title {
+    font-size: 1.3rem;
+  }
+  .lang {
+    margin-bottom: 1rem;
+  }
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    width: 80%;
+  }
+  .contact-info-upper-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-info-container p {
+    font-size: medium;
+  }
+  footer .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .arrow {
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 0.5rem;
+    height: 2rem;
+  }
+  .text_container {
+    font-size: 1rem;
+  }
+  #experience p {
+    font-size: 0.95rem;
+  }
+  #projects p {
+    font-size: 0.95rem;
+  }
+  #dashboards p {
+    font-size: 0.95rem;
+  }
+  #certifications p {
+    font-size: 0.95rem;
+  }
+  #courses .skill-track-title {
+    font-size: 1.5rem;
+  }
+  #courses .course-list li {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #desktop-nav {
+    display: none;
+  }
+  #hamburger-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  .logo {
+    font-size: 2rem;
+  }
+  .menu-links {
+    right: 1rem;
+  }
+  section {
+    margin: 0 1rem;
+  }
+  #profile {
+    gap: 1rem;
+  }
+  .section__pic-container {
+    width: 200px;
+    height: 200px;
+  }
+  .section__text__p1 {
+    font-size: 1rem;
+  }
+  .section__text__p2 {
+    font-size: 1rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .btn {
+    width: 90%;
+  }
+  .details-container {
+    margin-bottom: 1rem;
+  }
+  .text_container {
+    font-size: 0.9rem;
+  }
+  .project-img {
+    height: 150px;
+  }
+  .project-title {
+    font-size: 1.2rem;
+  }
+  .lang small {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+  .dashboard-img {
+    height: 150px;
+  }
+  .dashboard-title {
+    font-size: 1.2rem;
+  }
+  .certification-img {
+    height: 150px;
+  }
+  .certification-title {
+    font-size: 1rem;
+  }
+  .skill-track-title {
+    font-size: 1.2rem;
+  }
+  .course-list li {
+    font-size: 0.9rem;
+  }
+  .contact-info-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .contact-info-container p {
+    font-size: small;
+  }
+  .contact-icon {
+    height: 2rem;
+  }
+  .email-icon {
+    height: 2.2rem;
+  }
+  footer p {
+    font-size: 0.8rem;
+  }
+  footer .nav-links {
+    font-size: 0.9rem;
+  }
+}
