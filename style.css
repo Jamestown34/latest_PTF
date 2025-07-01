@@ -1,3 +1,9 @@
+/*
+ * This CSS file is designed for a pure HTML/CSS website,
+ * using the specified brand colors and linear gradient directly.
+ * No JavaScript or external utility classes are assumed.
+ */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,16 +11,22 @@
 }
 
 :root {
-    /* Brand Colors */
-    --primary-gradient: linear-gradient(90deg, #001288, #0257a6, #93cbff);
-    --secondary-gradient: linear-gradient(90deg, #93cbff, #0257a6, #001288); /* A reverse or complementary gradient */
-    --accent-color: #FFFFFF; /* Using white as an accent */
-    --dark-bg: #0a0a0a;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --text-primary: #FFFFFF; /* Main text color is white */
-    --text-secondary: #b0b0b0;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    /* Brand Colors as RGB or HSL for direct use */
+    --brand-dark-blue: #001288; /* HSL: 220 100% 27% */
+    --brand-mid-blue: #0257a6;  /* HSL: 203 97% 32% */
+    --brand-light-blue: #93cbff; /* HSL: 206 100% 79% */
+    --brand-white: #FFFFFF;    /* HSL: 0 0% 100% */
+
+    /* Define your primary gradient using the brand colors */
+    --primary-gradient: linear-gradient(90deg, var(--brand-dark-blue), var(--brand-mid-blue), var(--brand-light-blue));
+    --secondary-gradient: linear-gradient(90deg, var(--brand-light-blue), var(--brand-mid-blue), var(--brand-dark-blue)); /* A reverse gradient for variety */
+
+    /* General site colors, using brand colors where appropriate */
+    --dark-bg: hsl(222.2, 84%, 4.9%); /* A very dark blue/grey for background */
+    --text-primary: var(--brand-white); /* Main text color */
+    --text-secondary: hsl(215, 20.2%, 65.1%); /* Muted grey for secondary text */
+    --glass-bg: rgba(255, 255, 255, 0.1); /* Light transparent background for glass effect */
+    --glass-border: rgba(255, 255, 255, 0.2); /* Slightly less transparent border */
 }
 
 body {
@@ -22,10 +34,10 @@ body {
     background: var(--dark-bg);
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Animated background */
+/* Animated background using HSL for smooth transitions and consistency */
 body::before {
     content: '';
     position: fixed;
@@ -34,10 +46,10 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(0, 18, 136, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(2, 87, 166, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(147, 203, 255, 0.3) 0%, transparent 50%);
-    z-index: -1;
+        radial-gradient(circle at 20% 50%, hsla(220, 100%, 27%, 0.3) 0%, transparent 50%), /* brand-dark-blue HSL with opacity */
+        radial-gradient(circle at 80% 20%, hsla(203, 97%, 32%, 0.3) 0%, transparent 50%), /* brand-mid-blue HSL with opacity */
+        radial-gradient(circle at 40% 80%, hsla(206, 100%, 79%, 0.3) 0%, transparent 50%); /* brand-light-blue HSL with opacity */
+    z-index: -1; /* Puts it behind content */
     animation: backgroundMove 20s ease-in-out infinite;
 }
 
@@ -46,7 +58,10 @@ body::before {
     50% { transform: translateY(-20px) rotate(1deg); }
 }
 
-/* Modern Navigation */
+/* --- */
+
+## Navigation
+
 nav {
     position: fixed;
     top: 20px;
@@ -75,7 +90,7 @@ nav:hover {
 }
 
 .nav-links a {
-    color: var(--text-primary);
+    color: var(--text-primary); /* White text */
     text-decoration: none;
     font-weight: 500;
     padding: 8px 16px;
@@ -87,6 +102,7 @@ nav:hover {
 .nav-links a:hover {
     background: var(--primary-gradient);
     transform: translateY(-2px);
+    color: var(--brand-white); /* Ensure text stays white on gradient background */
 }
 
 .logo {
@@ -98,7 +114,10 @@ nav:hover {
     background-clip: text;
 }
 
-/* Hero Section */
+/* --- */
+
+## Hero Section
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -119,7 +138,7 @@ nav:hover {
     height: 200px;
     border-radius: 50%;
     margin: 0 auto 2rem;
-    background: var(--primary-gradient);
+    background: var(--primary-gradient); /* Applied directly */
     padding: 5px;
     animation: float 6s ease-in-out infinite;
 }
@@ -140,7 +159,7 @@ nav:hover {
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 700;
     margin-bottom: 1rem;
-    background: var(--primary-gradient);
+    background: var(--primary-gradient); /* Applied directly */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -159,7 +178,10 @@ nav:hover {
     line-height: 1.8;
 }
 
-/* Modern Buttons */
+/* --- */
+
+## Modern Buttons
+
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -174,14 +196,14 @@ nav:hover {
 }
 
 .btn-primary {
-    background: var(--primary-gradient);
-    color: var(--accent-color); /* White text on primary gradient button */
+    background: var(--primary-gradient); /* Applied directly */
+    color: var(--brand-white); /* White text on primary gradient button */
     margin-right: 1rem;
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--text-primary);
+    color: var(--text-primary); /* White text */
     border: 2px solid var(--glass-border);
     backdrop-filter: blur(10px);
 }
@@ -192,7 +214,7 @@ nav:hover {
 }
 
 .btn-primary:hover {
-    background: var(--secondary-gradient);
+    background: var(--secondary-gradient); /* Reverse gradient on hover */
 }
 
 .btn-secondary:hover {
@@ -200,7 +222,10 @@ nav:hover {
     border-color: var(--text-primary);
 }
 
-/* Social Links */
+/* --- */
+
+## Social Links
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -218,18 +243,22 @@ nav:hover {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
-    color: var(--text-primary);
+    color: var(--text-primary); /* White icon */
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .social-link:hover {
     transform: translateY(-5px) scale(1.1);
-    background: var(--primary-gradient);
+    background: var(--primary-gradient); /* Applied directly */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    color: var(--brand-white); /* Ensure icon color is white on hover */
 }
 
-/* Sections */
+/* --- */
+
+## Sections
+
 section {
     padding: 100px 2rem;
     max-width: 1200px;
@@ -241,7 +270,7 @@ section {
     font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 700;
     margin-bottom: 1rem;
-    background: var(--primary-gradient);
+    background: var(--primary-gradient); /* Applied directly */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -257,7 +286,10 @@ section {
     margin-right: auto;
 }
 
-/* Glass Cards */
+/* --- */
+
+## Glass Cards
+
 .card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -272,7 +304,7 @@ section {
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15); /* Slightly brighter glass on hover */
 }
 
 .card::before {
@@ -282,7 +314,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.1), transparent); /* Subtle shine effect */
     transition: left 0.5s ease;
 }
 
@@ -290,7 +322,10 @@ section {
     left: 100%;
 }
 
-/* Skills Grid */
+/* --- */
+
+## Skills Grid
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -310,20 +345,23 @@ section {
 }
 
 .skill-item:hover {
-    background: var(--primary-gradient);
-    color: var(--accent-color); /* Ensure text is white on hover */
+    background: var(--primary-gradient); /* Applied directly */
+    color: var(--brand-white); /* Ensure text is white on hover */
     transform: scale(1.05);
 }
 
 .skill-icon {
     font-size: 2rem;
-    background: var(--primary-gradient); /* Using primary gradient for skill icons */
+    background: var(--primary-gradient); /* Applied directly */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-/* Projects Grid */
+/* --- */
+
+## Projects Grid
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -347,12 +385,12 @@ section {
 .project-image {
     width: 100%;
     height: 200px;
-    background: var(--primary-gradient);
+    background: var(--primary-gradient); /* Applied directly */
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    color: var(--accent-color); /* White icon on project image */
+    color: var(--brand-white); /* White icon on project image */
 }
 
 .project-content {
@@ -380,8 +418,8 @@ section {
 }
 
 .tag {
-    background: var(--primary-gradient); /* Using primary gradient for tags */
-    color: var(--accent-color); /* White text on tags */
+    background: var(--primary-gradient); /* Applied directly */
+    color: var(--brand-white); /* White text on tags */
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -393,7 +431,10 @@ section {
     gap: 1rem;
 }
 
-/* Contact Section */
+/* --- */
+
+## Contact Section
+
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -412,24 +453,28 @@ section {
 
 .contact-item:hover {
     transform: translateY(-5px);
-    background: var(--primary-gradient);
-    color: var(--accent-color); /* Ensure text is white on hover */
+    background: var(--primary-gradient); /* Applied directly */
+    color: var(--brand-white); /* Ensure text is white on hover */
 }
 
 .contact-item:hover a {
-    color: var(--accent-color); /* Ensure links are white on hover */
+    color: var(--brand-white); /* Ensure links are white on hover */
 }
 
 .contact-icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    background: var(--primary-gradient); /* Using primary gradient for contact icons */
+    background: var(--primary-gradient); /* Applied directly */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-/* Animations */
+/* --- */
+
+## Animations & Responsiveness
+
+/* Standard fadeInUp animation */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -445,7 +490,9 @@ section {
     animation: fadeInUp 0.8s ease-out;
 }
 
-/* Scroll Animations */
+/* Scroll Animations - for pure CSS, this typically relies on Intersection Observer,
+   which is JS. For pure CSS, these classes would be added manually or by a minimal JS snippet.
+   Keeping them in case you manually apply them. */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -502,7 +549,10 @@ section {
     }
 }
 
-/* Footer */
+/* --- */
+
+## Footer
+
 footer {
     text-align: center;
     padding: 3rem 2rem;
@@ -510,9 +560,13 @@ footer {
     backdrop-filter: blur(20px);
     border-top: 1px solid var(--glass-border);
     margin-top: 4rem;
+    color: var(--text-secondary); /* Footer text color */
 }
 
-/* Custom Scrollbar */
+/* --- */
+
+## Custom Scrollbar
+
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -522,10 +576,10 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-gradient);
+    background: var(--primary-gradient); /* Gradient scrollbar */
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-gradient);
+    background: var(--secondary-gradient); /* Reverse gradient on hover */
 }
